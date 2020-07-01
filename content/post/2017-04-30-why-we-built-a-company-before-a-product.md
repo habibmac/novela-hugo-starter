@@ -1,157 +1,34 @@
 ---
 title: Why we built a company before building a product and why it worked
 date: 2017-04-30
-hero: /images/hero-6.jpg
-excerpt: Creating a new website for Hopper, one of the top 4 most downloaded travel apps in the U.S, along with Uber, Lyft.
+hero: "/images/hero-6.jpg"
+excerpt: Creating a new website for Hopper, one of the top 4 most downloaded travel
+  apps in the U.S, along with Uber, Lyft.
 timeToRead: 3
 authors:
-  - Thiago Costa
+- Thiago Costa
 
 ---
+  
+Imam **Tajuddin As-Subki** dalam kitabnya Thabaqat Syafi’iyah al-Kubra (5/268) menceritakan kisah sbb:  
+ .
 
-Hello, world! This is a demo post for `hugo-theme-novela`. Novela is built by the team at [Narative](https://narative.co), and built for everyone that loves the web.
+وَقيل إِنَّه لم يظْهر شَيْئا من تصانيفه فِي حَيَاته وَجَمعهَا فِي مَوضِع فَلَمَّا دنت وَفَاته قَالَ لمن يَثِق بِهِ الْكتب الَّتِي فِي الْمَكَان الْفُلَانِيّ كلهَا تصنيفي وَإِنَّمَا لم أظهرها لِأَنِّي لم أجد نِيَّة خَالِصَة فَإِذا عَايَنت الْمَوْت وَوَقعت فِي النزع فَاجْعَلْ يدك فِي يَدي فَإِن قبضت عَلَيْهَا وعصرتها فَاعْلَم أَنه لم يقبل مني شَيْء مِنْهَا فاعمد إِلَى الْكتب وألقها فِي دجلة وَإِن بسطت يَدي وَلم أَقبض على يدك فَاعْلَم أَنَّهَا قد قبلت وَأَنِّي قد ظَفرت بِمَا كنت أرجوه من النِّيَّة  
+ قَالَ ذَلِك الشَّخْص فَلَمَّا قاربت الْمَوْت وضعت يَدي فِي يَده فبسطها وَلم يقبض على يَدي فَعلمت أَنَّهَا عَلامَة الْقبُول فأظهرت كتبه بعده  
+ .
 
-In my experience, the challenges that growing companies struggle with rarely stem from a lack of good ideas. Good ideas are everywhere.
-In my experience, the challenges that growing companies struggle with rarely stem from a lack of good ideas. Good ideas are everywhere.
-In my experience, the challenges that growing companies struggle with rarely stem from a lack of good ideas. Good ideas are everywhere.
+Imam **al-Mawardi** tidak langsung mempublikasikan semua naskahnya. Beliau menyembunyikannya di suatu tempat. Ketika ajalnya sudah dekat, beliau berpesan kepada orang yang dipercayainya:
 
-In my experience, the challenges that growing companies struggle with rarely stem from a lack of good ideas. Good ideas are everywhere.
+“Naskah yang terdapat di tempat si Fulan semuanya itu karanganku. Aku belum menerbitkannya karena aku belum mendapati niat yang bersih. Jika aku dalam sakratul maut, letakkan tanganmu pada tanganku. Nanti kalau aku menggenggam tanganmu maka ketahuliah bahwa tidak ada satupun karanganku itu yang diterima Allah. Jadi, ambillah semua kitabku itu dan lemparkanlah ke sungai Dijlah. Tetapi kalau tanganku membuka dan aku tidak menggenggam tanganmu maka ketahuilah karya-karyaku itu telah diterima Allah dan aku sudah mendapatkan niat bersih yang aku harapkan.”
 
-But it takes more than good ideas to build and grow a business. It takes people to bring them into reality. Are those people collaborating and sharing their expertise, or are they in conflict and keeping it to themselves?
+Orang kepercayaan **Al-Mawardi** itu berkata, “Ketika sudah dekat saat wafatnya, aku meletakkan tanganku pada tangan beliau. Ternyata beliau membuka tangannya dan tidak menggenggam tanganku. Dari situ aku tahu bahwa amal beliau telah diterima Allah. Karenanya, aku pun mempublikasikan kitab-kitab beliau setelah wafatnya”.
 
-Do they have the resources necessary to execute on their ideas? Or are they constantly under pressure to pluck only the lowest-hanging fruit through bare minimum means, while putting their greatest ambitions on the back-burner?
+Imam **As-Subki** menduga bahwa yang dimaksud itu kitab al-Hawi al-Kabir, 19 jilid, yang merupakan kitab fiqh yang memberi syarah (penjelasan) akan kitab Mukhtashar al-Muzani.
 
-These are the circumstances that suffocate creativity and destroy value in an organization. That’s why I knew that if I was going to start a company, our first product would have to be the company itself.
+Begitulah ujian keikhlasan para Ulama klasik. Semoga kita kecipratan barokahnya, dan semoga kitapun bisa seikhlas beliau.
 
-```js
-import React from "react";
-import { graphql, useStaticQuery } from "gatsby";
-import styled from "@emotion/styled";
+Tabik,
 
-import * as SocialIcons from "../../icons/social";
-import mediaqueries from "@styles/media";
+Nadirsyah Hosen
 
-const icons = {
-  dribbble: SocialIcons.DribbbleIcon,
-  linkedin: SocialIcons.LinkedinIcon,
-  twitter: SocialIcons.TwitterIcon,
-  facebook: SocialIcons.FacebookIcon,
-  instagram: SocialIcons.InstagramIcon,
-  github: SocialIcons.GithubIcon,
-};
-
-const socialQuery = graphql`
-  {
-    allSite {
-      edges {
-        node {
-          siteMetadata {
-            social {
-              name
-              url
-            }
-          }
-        }
-      }
-    }
-  }
-`;
-
-function SocialLinks({ fill = "#73737D" }: { fill: string }) {
-  const result = useStaticQuery(socialQuery);
-  const socialOptions = result.allSite.edges[0].node.siteMetadata.social;
-
-  return (
-    <>
-      {socialOptions.map(option => {
-        const Icon = icons[option.name];
-
-        return (
-          <SocialIconContainer
-            key={option.name}
-            target="_blank"
-            rel="noopener"
-            data-a11y="false"
-            aria-label={`Link to ${option.name}`}
-            href={option.url}
-          >
-            <Icon fill={fill} />
-          </SocialIconContainer>
-        );
-      })}
-    </>
-  );
-}
-```
-
-But it takes more than good ideas to build and grow a business. It takes people to bring them into reality. Are those people collaborating and sharing their expertise, or are they in conflict and keeping it to themselves?
-
-# This is a primary heading
-
-Do they have the resources necessary to execute on their ideas? Or are they constantly under pressure to pluck only the lowest-hanging fruit through bare minimum means, while putting their greatest ambitions on the back-burner?
-
-> Blockquotes are very handy in email to emulate reply text.
-> This line is part of the same quote.
-
-But it takes more than good ideas to build and grow a business. It takes people to bring them into reality. Are those people collaborating and sharing their expertise, or are they in conflict and keeping it to themselves?
-
-> This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can _put_ **Markdown** into a blockquote.
-
-These are the circumstances that suffocate creativity and destroy value in an organization. That’s why I knew that if I was going to start a company, our first product would have to be the company itself. These are the circumstances that suffocate creativity and destroy value in an organization. That’s why I knew that if I was going to start a company, our first product would have to be the company itself.
-
-## This is a secondary heading
-
-```jsx
-import React from "react";
-import { ThemeProvider } from "theme-ui";
-import theme from "./theme";
-
-export default props => (
-  <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
-);
-```
-
-These are the circumstances that suffocate creativity and destroy value in an organization. That’s why I knew that if I was going to start a company, our first product would have to be the company itself. These are the circumstances that suffocate creativity and destroy value in an organization. That’s why I knew that if I was going to start a company, our first product would have to be the company itself. These are the circumstances that suffocate creativity and destroy value in an organization. That’s why I knew that if I was going to start a company, our first product would have to be the company itself. These are the circumstances that suffocate creativity and destroy value in an organization. That’s why I knew that if I was going to start a company, our first product would have to be the company itself.
-
----
-
-Hyphens
-
----
-
-Asterisks
-
----
-
-Underscores
-
-These are the circumstances that suffocate creativity and destroy value in an organization. That’s why I knew that if I was going to start a company, our first product would have to be the company itself. These are the circumstances that suffocate creativity and destroy value in an organization. That’s why I knew that if I was going to start a company, our first product would have to be the company itself.
-
-Do they have the resources necessary to execute on their ideas? Or are they constantly under pressure to pluck only the lowest-hanging fruit through bare minimum means, while putting their greatest ambitions on the back-burner?
-
-Emphasis, aka italics, with _asterisks_ or _underscores_.
-
-Strong emphasis, aka bold, with **asterisks** or **underscores**.
-
-Combined emphasis with **asterisks and _underscores_**.
-
-Strikethrough uses two tildes. ~~Scratch this.~~
-
-1. First ordered list item
-2. Another item
-   ⋅⋅\* Unordered sub-list.
-3. Actual numbers don't matter, just that it's a number
-   ⋅⋅1. Ordered sub-list
-4. And another item.
-
-⋅⋅⋅You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
-
-⋅⋅⋅To have a line break without a paragraph, you will need to use two trailing spaces.⋅⋅
-⋅⋅⋅Note that this line is separate, but within the same paragraph.⋅⋅
-⋅⋅⋅(This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
-
-- Unordered list can use asterisks
-
-* Or minuses
-
-- Or pluses
+Nb. Diposting setelah saya berceramah di acara PWNU Jogja dan sempat membacakan teks kutipan dari kitab al-Hawi al-Kabir karya Imam al-Mawardi. Lahul fatihah 🙏
